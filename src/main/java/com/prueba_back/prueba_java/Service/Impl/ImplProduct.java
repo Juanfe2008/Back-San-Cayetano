@@ -121,4 +121,18 @@ public class ImplProduct implements ServiceProduct {
     public ProductDto update(Long id, ProductDto productDto) {
         return null;
     }
+
+    @Override
+    public ProducSaveResponse deleteById(Long id) {
+        try{
+            if (id != null){
+                productRepository.deleteById(id);
+                return productMapper.toResponseProductSave(null,200,"Producto Eliminiado con exito", "OK");
+            }
+            return productMapper.toResponseProductSave(null,404,"No se a proporcionado un ID de producto", "BAD REQUEST");
+        }catch (Exception e){
+            return productMapper.toResponseProductSave(null,404,e.toString(), "BAD REQUEST");
+        }
+
+    }
 }

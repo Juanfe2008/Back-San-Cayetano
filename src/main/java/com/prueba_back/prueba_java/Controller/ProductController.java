@@ -45,4 +45,9 @@ public class ProductController {
 
         return new ResponseEntity<ProducSaveResponse>(productService.save(productDto),HttpStatus.CREATED);
     }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity<ProducSaveResponse> deleteById(@PathVariable Long id){
+        return new ResponseEntity<ProducSaveResponse>(productService.deleteById(id),HttpStatus.OK);
+    }
 }
