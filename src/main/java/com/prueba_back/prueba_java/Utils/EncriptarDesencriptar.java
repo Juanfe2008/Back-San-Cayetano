@@ -28,7 +28,6 @@ public class EncriptarDesencriptar {
             byte[] buf = cipher.doFinal(plainTextBytes);
             byte[] base64Bytes = Base64.encodeBase64(buf);
             base64EncryptedString = new String(base64Bytes);
-
         } catch (Exception ex) {
         }
         return base64EncryptedString;
