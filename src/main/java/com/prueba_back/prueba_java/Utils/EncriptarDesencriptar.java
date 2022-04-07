@@ -15,6 +15,7 @@ public class EncriptarDesencriptar {
 
         try {
 
+
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
             byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
