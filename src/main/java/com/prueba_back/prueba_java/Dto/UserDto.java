@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import javax.xml.transform.sax.SAXResult;
 import java.math.BigInteger;
 
 @Data
@@ -31,8 +32,11 @@ public class UserDto {
     @JsonProperty("password")
     private String password;
 
+    @JsonProperty("email")
+    private String email;
+
     @JsonProperty("phone")
-    private BigInteger phone;
+    private String phone;
 
     @JsonProperty("addres")
     private String addres;

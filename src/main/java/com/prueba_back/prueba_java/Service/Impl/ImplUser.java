@@ -40,6 +40,7 @@ public class ImplUser implements ServiceUser {
                 users.setPassword(PasswordEncryp);
                 users.setPhone(userDto.phone());
                 users.setAddres(userDto.addres());
+                users.setEmail(userDto.email());
                 users.setIdentification(userDto.identification());
                 userRepository.save(users);
                 users.setPassword("");
