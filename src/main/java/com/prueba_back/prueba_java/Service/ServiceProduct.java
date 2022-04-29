@@ -15,4 +15,6 @@ public interface ServiceProduct {
 
     public ProductDto update(Long id, ProductDto productDto);
 
+    public ProducSaveResponse deleteById(Long id);
+
 }

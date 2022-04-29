@@ -39,6 +39,7 @@ public class UsersMapper {
                     .identification(users.getIdentification())
                     .username(users.getUsername())
                     .phone(users.getPhone())
+                    .email(users.getEmail())
                     .build();
         }
         return null;
@@ -62,6 +63,7 @@ public class UsersMapper {
             userDto.username(users.getUsername());
             userDto.password(users.getPassword());
             userDto.phone(users.getPhone());
+            userDto.email(users.getEmail());
             userDto.addres(users.getAddres());
             userDto.identification(users.getIdentification());
 

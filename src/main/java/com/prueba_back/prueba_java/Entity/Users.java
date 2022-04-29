@@ -29,8 +29,11 @@ public class Users {
     /* @Column(name = "Age")
     private Long age;*/
 
+    @Column(name = "Email")
+    private String email;
+
     @Column(name = "Phone")
-    private BigInteger phone;
+    private String phone;
 
     @Column(name = "Addres")
     private String addres;
