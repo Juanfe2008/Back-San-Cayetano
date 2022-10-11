@@ -42,6 +42,7 @@ public class ImplUser implements ServiceUser {
                 users.setAddres(userDto.addres());
                 users.setEmail(userDto.email());
                 users.setIdentification(userDto.identification());
+                users.setTotalValue(userDto.totalValue());
                 userRepository.save(users);
                 users.setPassword("");
                 return usersMapper.toResponseUserSave(users,201,"Usuario Creado con Exitosamente","201");

@@ -36,13 +36,16 @@ public class UserDto {
     private String email;
 
     @JsonProperty("phone")
-    private String phone;
+    private Long phone;
 
     @JsonProperty("addres")
     private String addres;
 
     @JsonProperty("identification")
     private String identification;
+
+    @JsonProperty("totalValue")
+    private Float totalValue;
 
 
 

@@ -30,4 +30,7 @@ public class Cars {
 
     @Column(name = "cantidad")
     private Long cantidad;
+
+
+
 }

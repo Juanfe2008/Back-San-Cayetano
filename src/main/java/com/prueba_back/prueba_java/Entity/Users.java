@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigInteger;
+import java.util.List;
 
 @Data
 @Builder
@@ -33,7 +33,7 @@ public class Users {
     private String email;
 
     @Column(name = "Phone")
-    private String phone;
+    private Long phone;
 
     @Column(name = "Addres")
     private String addres;
@@ -45,5 +45,11 @@ public class Users {
 
     @Column(name = "Password")
     private String password;
+
+    @Column(name = "TotalValue")
+    private Float totalValue;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUser")
+    private List<HistoricoFacturas> historico;
 
 }

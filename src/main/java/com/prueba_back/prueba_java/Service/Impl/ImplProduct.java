@@ -108,7 +108,9 @@ public class ImplProduct implements ServiceProduct {
             if (id != null){
 
                 Products products = productRepository.findByIdProduc(id);
-                return productMapper.toResponseProductSave(products,200,"Consulta por id realizada con exito","200");
+                return ProducSaveResponse.builder().codResponse(200).message("cosnulta exitosa").build();
+
+
             }
             return productMapper.toResponseProductSave(null,400,"Falta el parametro ID para relaizar la consulta", "400");
         }catch (Exception e){
