@@ -13,6 +13,6 @@ public interface ServiceUser {
 
     public UserDto listById(Long id);
 
-    public UserDto update(Long id, UserDto userDto);
+    public UserSaveResponse update( UserDto userDto);
 
 }

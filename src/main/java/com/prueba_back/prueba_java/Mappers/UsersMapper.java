@@ -59,15 +59,15 @@ public class UsersMapper {
         UserDto userDto = new UserDto();
 
         if (users != null){
-            userDto.name(users.getNameUser());
-            userDto.lastName(users.getLastname());
-            userDto.username(users.getUsername());
-            userDto.password(users.getPassword());
-            userDto.phone(users.getPhone());
-            userDto.email(users.getEmail());
-            userDto.addres(users.getAddres());
-            userDto.identification(users.getIdentification());
-            userDto.totalValue(users.getTotalValue());
+            userDto.setName(users.getNameUser());
+            userDto.setLastName(users.getLastname());
+            userDto.setUsername(users.getUsername());
+            userDto.setPassword(users.getPassword());
+            userDto.setPhone(users.getPhone());
+            userDto.setEmail(users.getEmail());
+            userDto.setAddres(users.getAddres());
+            userDto.setIdentification(users.getIdentification());
+            userDto.setTotalValue(users.getTotalValue());
 
             return userDto;
         }

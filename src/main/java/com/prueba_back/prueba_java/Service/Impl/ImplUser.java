@@ -5,6 +5,7 @@ import com.prueba_back.prueba_java.Entity.Users;
 import com.prueba_back.prueba_java.Mappers.UsersMapper;
 import com.prueba_back.prueba_java.Repository.UserRepository;
 import com.prueba_back.prueba_java.Response.UserSaveResponse;
+import org.modelmapper.ModelMapper;
 import com.prueba_back.prueba_java.Response.UsersResponse;
 import com.prueba_back.prueba_java.Service.ServiceUser;
 import com.prueba_back.prueba_java.Utils.EncriptarDesencriptar;
@@ -23,26 +24,28 @@ public class ImplUser implements ServiceUser {
     UsersMapper usersMapper;
 
 
+
     @Override
     public UserSaveResponse save(UserDto userDto) {
 
         try{
 
-            String PasswordEncryp = EncriptarDesencriptar.Encriptar(userDto.password());
-            String UserNameEncryp = EncriptarDesencriptar.Encriptar(userDto.username());
+            String PasswordEncryp = EncriptarDesencriptar.Encriptar(userDto.getPassword());
+            String UserNameEncryp = EncriptarDesencriptar.Encriptar(userDto.getUsername());
 
             Users users = new Users();
 
             if(userDto != null){
-                users.setNameUser(userDto.name());
-                users.setLastname(userDto.lastName());
+                users.setNameUser(userDto.getName());
+                users.setLastname(userDto.getName());
                 users.setUsername(UserNameEncryp);
                 users.setPassword(PasswordEncryp);
-                users.setPhone(userDto.phone());
-                users.setAddres(userDto.addres());
-                users.setEmail(userDto.email());
-                users.setIdentification(userDto.identification());
-                users.setTotalValue(userDto.totalValue());
+                users.setPhone(userDto.getPhone());
+                users.setAddres(userDto.getAddres());
+                users.setEmail(userDto.getEmail());
+                users.setIdentification(userDto.getIdentification());
+                users.setTotalValue(userDto.getTotalValue());
+                users.setTotalValue(0F);
                 userRepository.save(users);
                 users.setPassword("");
                 return usersMapper.toResponseUserSave(users,201,"Usuario Creado con Exitosamente","201");
@@ -82,7 +85,22 @@ public class ImplUser implements ServiceUser {
     }
 
     @Override
-    public UserDto update(Long id, UserDto userDto) {
-        return null;
+    public UserSaveResponse update( UserDto userDto) {
+        try{
+
+            Users users = this.userRepository.findByIdUsers(userDto.getId());
+            users.setId(userDto.getId());
+            users.setTotalValue(userDto.getTotalValue());
+            this.userRepository.save(users);
+            return usersMapper.toResponseUserSave(users,200,"Actualizado exitosamente","OK");
+
+        }catch (Exception e){
+            return UserSaveResponse.builder()
+                    .codResponse(400)
+                    .message(e.toString())
+                    .status("400")
+                    .build();
+        }
+
     }
 }

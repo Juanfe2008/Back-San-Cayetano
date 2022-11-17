@@ -14,7 +14,6 @@ import java.math.BigInteger;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Accessors(fluent = true)
 public class UserDto {
 
     @JsonProperty("id")

@@ -18,6 +18,7 @@ public class UserController {
     @Autowired
     private ServiceUser serviceUser;
 
+
     @GetMapping(value = "/list")
     public ResponseEntity<UsersResponse> listUsers(){
 
@@ -27,5 +28,10 @@ public class UserController {
     @PostMapping(value = "/save")
     public ResponseEntity<UserSaveResponse> usersSave(@RequestBody UserDto users){
         return new ResponseEntity<UserSaveResponse>(serviceUser.save(users),HttpStatus.CREATED);
+    }
+
+    @PutMapping(value = "/update")
+    public ResponseEntity<UserSaveResponse> usersUpdate(@RequestBody UserDto users){
+        return new ResponseEntity<UserSaveResponse>(serviceUser.update(users),HttpStatus.CREATED);
     }
 }

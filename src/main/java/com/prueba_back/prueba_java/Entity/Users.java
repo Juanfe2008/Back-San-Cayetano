@@ -26,9 +26,6 @@ public class Users {
     @Column(name = "Lastname")
     private String lastname;
 
-    /* @Column(name = "Age")
-    private Long age;*/
-
     @Column(name = "Email")
     private String email;
 
