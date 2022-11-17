@@ -92,7 +92,7 @@ public class ImplUser implements ServiceUser {
             users.setId(userDto.getId());
             users.setTotalValue(userDto.getTotalValue());
             this.userRepository.save(users);
-            return usersMapper.toResponseUserSave(users,200,"Actualizado exitosamente","OK");
+            return usersMapper.toResponseUserSave(users,200,"Actualizado exitosamente","200");
 
         }catch (Exception e){
             return UserSaveResponse.builder()
